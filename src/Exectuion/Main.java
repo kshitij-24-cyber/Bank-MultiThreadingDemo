@@ -8,10 +8,15 @@ import Defination.Bank;
 
 public class Main {
     public static void main(String[] args) {
-        Bank accoutnt1 = new Bank(1,1000);
-        Bank accoutnt2 = new Bank(2,2000);
+        Bank accoutnt1 = new Bank(1, 1000);
+        Bank accoutnt2 = new Bank(2, 2000);
     }
-    public static class myThread extends Thread{
+
+    public static class myThread extends Thread {
+        private Bank account;
+        boolean isDepost;
+        private double amount;
+
 
     }
 }
