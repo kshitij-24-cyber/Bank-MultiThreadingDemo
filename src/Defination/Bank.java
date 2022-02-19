@@ -5,5 +5,7 @@ package Defination;/*
  */
 
 public class Bank {
+    private long accountNumber;
+    private double accountBalance;
 
 }
