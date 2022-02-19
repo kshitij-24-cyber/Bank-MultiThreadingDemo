@@ -26,15 +26,19 @@ public class Main {
         @Override
         public void run() {
             if (isDepost) {
-                deposit();
+                try {
+                    deposit();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
             } else {
                 withdraw();
             }
         }
 
-        private void deposit() {
+        private void deposit() throws InterruptedException {
             this.account.setAccountBalance(this.account.getAccountBalance() + this.amount);
-
+            myThread.sleep(2000);
         }
 
         private void withdraw() {
