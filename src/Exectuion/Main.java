@@ -11,4 +11,7 @@ public class Main {
         Bank accoutnt1 = new Bank(1,1000);
         Bank accoutnt2 = new Bank(2,2000);
     }
+    public static class myThread extends Thread{
+
+    }
 }
