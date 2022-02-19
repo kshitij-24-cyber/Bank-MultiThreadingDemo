@@ -25,10 +25,20 @@ public class Main {
 
         @Override
         public void run() {
+            if (isDepost) {
+                deposit();
+            } else {
+                withdraw();
+            }
         }
 
-        private void deposit(){
+        private void deposit() {
+            this.account.setAccountBalance(this.account.getAccountBalance() + this.amount);
 
+        }
+
+        private void withdraw() {
+            this.account.setAccountBalance(this.account.getAccountBalance() - this.amount);
         }
     }
 }
