@@ -8,4 +8,8 @@ public class Bank {
     private long accountNumber;
     private double accountBalance;
 
+    public Bank(long accountNumber, double accountBalance) {
+        this.accountNumber = accountNumber;
+        this.accountBalance = accountBalance;
+    }
 }
