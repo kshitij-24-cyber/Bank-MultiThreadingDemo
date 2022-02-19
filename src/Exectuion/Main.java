@@ -17,6 +17,11 @@ public class Main {
         boolean isDepost;
         private double amount;
 
+        public myThread(Bank account, boolean isDepost, double amount) {
+            this.account = account;
+            this.isDepost = isDepost;
+            this.amount = amount;
+        }
 
     }
 }
