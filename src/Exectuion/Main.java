@@ -25,6 +25,9 @@ public class Main {
 
         @Override
         public void run() {
+        }
+
+        private void deposit(){
 
         }
     }
