@@ -23,5 +23,9 @@ public class Main {
             this.amount = amount;
         }
 
+        @Override
+        public void run() {
+
+        }
     }
 }
