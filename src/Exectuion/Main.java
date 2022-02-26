@@ -8,6 +8,7 @@ import Defination.Bank;
 
 public class Main {
     public static void main(String[] args) throws InterruptedException {
+        myThread.sleep(1000L);
         Bank account1 = new Bank(1, 1000);
         Bank accoutnt2 = new Bank(2, 2000);
 
@@ -23,18 +24,18 @@ public class Main {
         thread[5] = new myThread(accoutnt2, false, 2500);
 
         // loop for starting thread
-        for (int threads = 0; threads <6 ; threads++) {
+        for (int threads = 0; threads < 6; threads++) {
             thread[threads].start();
 
         }
         //loop for completion of threads
-        for (int threads = 0; threads <6 ; threads++) {
+        for (int threads = 0; threads < 6; threads++) {
             thread[threads].join();
         }
 
 
-        System.out.println( "Amount in account 1:" + account1.getAccountBalance());
-        System.out.println( "Amount in account :" +accoutnt2.getAccountBalance());
+        System.out.println("Amount in account 1:" + account1.getAccountBalance());
+        System.out.println("Amount in account 2:" + accoutnt2.getAccountBalance());
     }
 
     public static class myThread extends Thread {
@@ -56,17 +57,29 @@ public class Main {
                 withdraw();
             }
         }
- 
+
         private void deposit() {
-            this.account.setAccountBalance(this.account.getAccountBalance() + this.amount);
-            try {
-                myThread.sleep(3000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
+            System.out.println("I am in :" + currentThread().getName());
+           // synchronized ()-->
+            /**
+             * Synchronization in java is the capability to control the access of multiple threads to any shared resource.
+             * In the Multithreading concept, multiple threads try to access the shared resources at a time to produce
+             * inconsistent results.
+             * The synchronization is necessary for reliable communication between threads
+             */
+            synchronized (this.account) {
+
+                this.account.setAccountBalance(this.account.getAccountBalance() + this.amount);
+                try {
+                    myThread.sleep(3000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
             }
         }
 
         private void withdraw() {
+            System.out.println("I am in :" + currentThread().getName());
             this.account.setAccountBalance(this.account.getAccountBalance() - this.amount);
             try {
                 myThread.sleep(3000);
